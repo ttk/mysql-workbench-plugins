@@ -23,6 +23,8 @@ Known limitations:
 
 ### drupal_schema_grt.py
 
-This plugin dumps tables to drupal schema. See (https://drupal.org/node/693138) for original discussion.
+This plugin dumps tables to a drupal schema. See (https://drupal.org/node/693138) for original discussion.
+
+After you install this plugin, to use it:  "Create New EER Model" follow through on sensible defaults. Then on the file menu for the MySQL Model window or the EER Diagram window click plugins / Catalog / Generate Drupal Schema
 
 
