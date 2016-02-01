@@ -254,12 +254,12 @@ def generateFieldDefinition(column, comment_replace) :
  
   # Description.
   if column.comment :
-    comment = ' ' + column.comment + ' '
+    comment = ' ' + column.comment.replace("'", "\\'") + ' '
      
     for key, value in comment_replace.iteritems() :
       comment = comment.replace(key, value)
    
-    specs.append("'description' => '%s'" % comment.strip().replace("'", "\\'"))
+    specs.append("'description' => '%s'" % comment.strip())
    
   # Create the field defenition array.
   definition = "      '%s' => array(\n" % column.name
