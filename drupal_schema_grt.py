@@ -250,7 +250,7 @@ def generateFieldDefinition(column, comment_replace) :
     elif column.defaultValue == 'NULL' and not column.isNotNull :
       specs.append("'default' => NULL")
     else :
-      specs.append("'default' => '%s'" % column.defaultValue.replace("'", "\'"))
+      specs.append("'default' => '%s'" % column.defaultValue.strip("'").replace("'", "\\'"))
  
   # Description.
   if column.comment :
@@ -259,7 +259,7 @@ def generateFieldDefinition(column, comment_replace) :
     for key, value in comment_replace.iteritems() :
       comment = comment.replace(key, value)
    
-    specs.append("'description' => '%s'" % comment.strip())
+    specs.append("'description' => '%s'" % comment.strip().replace("'", "\\'"))
    
   # Create the field defenition array.
   definition = "      '%s' => array(\n" % column.name
