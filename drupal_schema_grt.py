@@ -111,7 +111,7 @@ def generateTableDefinition(table, comment_replace):
    
   # Table description.
   if table.comment:
-    definition += "    'description' => '%s',\n" % table.comment.replace("'", "\'").strip()
+    definition += "    'description' => '%s',\n" % table.comment.replace("'", "\\'").strip()
      
   # Add all columns.
   definition += "    'fields' => array(\n"
@@ -254,7 +254,7 @@ def generateFieldDefinition(column, comment_replace) :
  
   # Description.
   if column.comment :
-    comment = ' ' + column.comment.replace("'", "\'") + ' '
+    comment = ' ' + column.comment + ' '
      
     for key, value in comment_replace.iteritems() :
       comment = comment.replace(key, value)
