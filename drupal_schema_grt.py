@@ -111,7 +111,7 @@ def generateTableDefinition(table, comment_replace):
    
   # Table description.
   if table.comment:
-    definition += "    'description' => '%s',\n" % table.comment.replace("'", "\'").strip()
+    definition += "    'description' => '%s',\n" % table.comment.replace("'", "\\'").strip()
      
   # Add all columns.
   definition += "    'fields' => array(\n"
@@ -250,11 +250,11 @@ def generateFieldDefinition(column, comment_replace) :
     elif column.defaultValue == 'NULL' and not column.isNotNull :
       specs.append("'default' => NULL")
     else :
-      specs.append("'default' => '%s'" % column.defaultValue.replace("'", "\'"))
+      specs.append("'default' => '%s'" % column.defaultValue.strip("'").replace("'", "\\'"))
  
   # Description.
   if column.comment :
-    comment = ' ' + column.comment.replace("'", "\'") + ' '
+    comment = ' ' + column.comment.replace("'", "\\'") + ' '
      
     for key, value in comment_replace.iteritems() :
       comment = comment.replace(key, value)
